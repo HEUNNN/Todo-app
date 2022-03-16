@@ -16,6 +16,7 @@ const TodoInsert = ({ onInsert }) => {
       } else {
         onInsert(value);
         setValue("");
+        inputRef.current.focus();
       }
     },
     [onInsert, value]
