@@ -6,6 +6,7 @@ import { useRef, useCallback, useReducer, useEffect } from "react";
 
 const todoReducer = (todos, action) => {
   let newTodos = []; //localStorage를 사용하기 위함
+  let checkedTodos = [];
   switch (action.type) {
     case "INIT": {
       return action.data;
