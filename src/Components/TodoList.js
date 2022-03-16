@@ -4,6 +4,12 @@ import TodoListItem from "./TodoListItem";
 import "./TodoList.scss";
 
 const TodoList = ({ todos, onRemove, onToggle }) => {
+  let nonChecked = [];
+  let checked = [];
+  todos.map((todo) =>
+    todo.checked === true ? checked.push(todo) : nonChecked.push(todo)
+  );
+  todos = nonChecked.concat(checked);
   const rowRenderer = useCallback(
     ({ index, key, style }) => {
       const todo = todos[index];
