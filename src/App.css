@@ -2,9 +2,3 @@
 .App {
   font-family: "Nanum Gothic Coding", monospace;
 }
-@media (max-width: 650px) {
-  /*반응형 화면을 위함*/
-  .App {
-    width: 90vw;
-  }
-}
