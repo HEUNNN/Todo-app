@@ -3,10 +3,18 @@ import { List } from "../../node_modules/react-virtualized/dist/commonjs/List/in
 import TodoListItem from "./TodoListItem";
 import "./TodoList.scss";
 
+const sortArray = (arr) => {
+  let nonChecked = [];
+  let checked = [];
+  arr.map((e) => (e.checked === true ? checked.push(e) : nonChecked.push(e)));
+  return (arr = nonChecked.concat(checked));
+};
+
 const TodoList = ({ todos, onRemove, onToggle }) => {
+  const sortedTodos = sortArray(todos);
   const rowRenderer = useCallback(
     ({ index, key, style }) => {
-      const todo = todos[index];
+      const todo = sortedTodos[index];
       return (
         <TodoListItem
           todo={todo}
